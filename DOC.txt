@@ -1,0 +1,55 @@
+    const addToCartBtn: any = document.querySelector("#add-to-card-sm");
+
+    const productDetailView: any = document.querySelector(".header");
+
+    if (addToCartBtn && productDetailView) {
+      const viewOffsetTop = productDetailView.offsetTop;
+
+      window.addEventListener("scroll", () => {
+        //
+        if (window.pageYOffset >= viewOffsetTop) {
+          addToCartBtn.classList.remove("de-active");
+          addToCartBtn.classList.add("active");
+        } else {
+          addToCartBtn.classList.remove("active");
+          addToCartBtn.classList.add("de-active");
+        }
+      });
+    }
+
+
+
+
+
+                        صفحه‌نمایش این نسخه از ساعت Galaxy Watch3 سامسونگ 1.2 اینچی
+                    دارد و برای ساخت آن از فناوری super AMOLED استفاده شده است.
+                    رزولوشن صفحه‌نمایش 360 × 360 پیکسل است و تصویر واضح و شفافی
+                    را به نمایش می‌گذارد. این ساعت دارای حسگرهای متنوعی است که
+                    باعث می‌شود بتوانید فعالیت‌های روزانه‌ی خود را به‌راحتی
+                    اندازه‌گیری کنید. این حسگرها شامل شتاب‌سنج، ژیروسکوپ،
+                    فشارسنج و شمارش ضربان قلب هستند.
+
+
+
+
+const productDetailView: any = document.querySelector(".header");
+    const sm__addToCardBody: any = document.querySelector("#add-to-card-sm");
+
+    // const sm__addToCardBtn: any = document.querySelector(
+    //   "#add-to-card-sm .main_btn"
+    // );
+
+    if (sm__addToCardBody) {
+      const viewOffsetTop = productDetailView?.offsetTop;
+
+      window.addEventListener("scroll", () => {
+        //
+        if (window.pageYOffset >= viewOffsetTop) {
+          sm__addToCardBody.classList.remove("de-active");
+          sm__addToCardBody.classList.add("active");
+        } else {
+          sm__addToCardBody.classList.remove("active");
+          sm__addToCardBody.classList.add("de-active");
+        }
+      });
+    }

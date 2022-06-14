@@ -2,6 +2,14 @@
   width: 99%;
   margin: auto;
 }
+.flex {
+  display: flex;
+}
+
+.align-center {
+  display: flex;
+  align-items: center;
+}
 
 @media screen and (min-width: 600px) {
   .container {

@@ -1,25 +1,27 @@
 /* ---------------------
 	*** utils ***
 -----------------------*/
-
 @import "utils/variables";
-
+@import "utils/mixins";
 /* ---------------------
 	*** grid ***
 -----------------------*/
-
 @import "grid";
-
 /* ---------------------
 	*** base ***
 -----------------------*/
-
 @import "base/font";
 @import "base/reset";
 @import "base/typography";
-
 /* ---------------------
 	*** components ***
 -----------------------*/
-
 @import "@components/header/style";
+/* ---------------------
+	*** views ***
+-----------------------*/
+@import "@views/product-detail/style";
+/* ---------------------
+	*** shared ***
+-----------------------*/
+@import "@shared/image-slider/style";

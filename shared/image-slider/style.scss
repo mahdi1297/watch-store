@@ -1,0 +1,35 @@
+.image_slider-body {
+  width: 100%;
+  height: auto;
+  margin-top: 50px;
+
+  ul {
+    display: flex;
+    overflow-x: scroll;
+
+    li {
+      margin-left: 20px;
+      border-radius: 15px;
+    }
+
+    img {
+      border-radius: inherit;
+      height: 130px;
+      width: auto;
+    }
+  }
+}
+
+.image_slider-body ul::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+.image_slider-body ul::-webkit-scrollbar-track {
+  background: #fff;
+}
+.image_slider-body ul::-webkit-scrollbar-thumb {
+  background: #eee;
+}
+.image_slider-body ul::-webkit-scrollbar-thumb:hover {
+  background: #874249;
+}
