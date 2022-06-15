@@ -44,6 +44,9 @@ $md_size: 800px;
     font-size: $font_md;
     font-weight: $font_weight_500;
   }
+  .choose-color {
+    margin-top: 30px;
+  }
   .product-colors {
     width: 100%;
 
@@ -177,6 +180,9 @@ button.add-to-card {
 }
 
 @media (min-width: $md_size) {
+  .top-price {
+    display: none;
+  }
   .product_detail-view {
     main {
       background: $color_white;

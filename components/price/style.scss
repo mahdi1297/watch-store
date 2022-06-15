@@ -1,0 +1,52 @@
+.price__body {
+  width: 200px;
+  @extend .flex;
+  align-items: center;
+
+  & > p {
+    color: $color_danger;
+    font-size: $font_sm !important;
+  }
+  .price__body-sale-wrapper {
+    @extend .flex;
+  }
+  span {
+    width: 42px;
+    background: $color_danger;
+    display: flex;
+    height: 1px;
+    position: absolute;
+    margin-right: -42px;
+    margin-top: 10px;
+    transform: rotate(-11deg);
+  }
+  .price-percent {
+    @extend .flex;
+    width: 27px;
+    height: 20px;
+    background-color: $color_main;
+    border-radius: 5px;
+    color: $color_white;
+    align-items: center;
+    justify-content: center;
+    padding-top: 3px;
+    margin: 0 10px;
+
+    @media (max-width: 500px) {
+      margin: 0 3px !important;
+    }
+  }
+  .price-sale {
+    color: $color_dark;
+  }
+}
+
+.sale-color {
+  color: #ccc !important;
+}
+
+.center-at-sm > p {
+  position: relative;
+  right: 50%;
+  transform: translateX(50%);
+}

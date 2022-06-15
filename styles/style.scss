@@ -4,9 +4,9 @@
 @import "utils/variables";
 @import "utils/mixins";
 /* ---------------------
-	*** grid ***
+	*** layout ***
 -----------------------*/
-@import "grid";
+@import "layout/grid";
 /* ---------------------
 	*** base ***
 -----------------------*/
@@ -17,6 +17,7 @@
 	*** components ***
 -----------------------*/
 @import "@components/header/style";
+@import "@components/price/style";
 /* ---------------------
 	*** views ***
 -----------------------*/
