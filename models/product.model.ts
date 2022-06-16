@@ -9,6 +9,7 @@ export interface ProductModel {
   country: string;
   material: string;
   waranty: string;
+  features: any;
   colors: string[];
   hasSale: boolean;
   salePercent?: number;

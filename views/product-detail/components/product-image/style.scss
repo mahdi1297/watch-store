@@ -1,15 +1,29 @@
 .image_slider-body {
   width: 100%;
+  margin: auto;
+  overflow-x: clip;
   height: auto;
   margin-top: 50px;
 
   ul {
     display: flex;
+    justify-content: center;
     overflow-x: scroll;
+    width: fit-content;
+    margin: auto;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
 
     li {
       margin-left: 20px;
       border-radius: 15px;
+
+      .image_slider-wrapper {
+        width: 50px;
+        height: 50px;
+        position: relative;
+        cursor: pointer;
+      }
     }
 
     img {
@@ -20,16 +34,20 @@
   }
 }
 
+.image_slider-body::-webkit-scrollbar,
 .image_slider-body ul::-webkit-scrollbar {
   width: 5px;
   height: 5px;
 }
+.image_slider-body::-webkit-scrollbar-track,
 .image_slider-body ul::-webkit-scrollbar-track {
   background: #fff;
 }
+.image_slider-body::-webkit-scrollbar-thumb,
 .image_slider-body ul::-webkit-scrollbar-thumb {
   background: #eee;
 }
+.image_slider-body::-webkit-scrollbar-thumb:hover,
 .image_slider-body ul::-webkit-scrollbar-thumb:hover {
   background: #874249;
 }

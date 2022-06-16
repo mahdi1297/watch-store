@@ -1,12 +1,22 @@
-$md_size: 800px;
+@import "../components/price/style";
+@import "../components/product-image/style";
 
 .product_detail-view {
   @extend .flex;
   main {
     width: 100%;
     height: auto;
-    padding-bottom: 70px;
-    padding-top: 120px;
+    padding: 60px 0;
+
+    & > section {
+      @media (min-width: $md_size) {
+        width: 50%;
+      }
+    }
+    @media (min-width: $md_size) {
+      display: flex;
+      flex-direction: row;
+    }
   }
 }
 
@@ -23,15 +33,22 @@ $md_size: 800px;
   h1 {
     color: $color_dark;
     font-size: $font_lg;
-    font-weight: $font_weight_500 !important;
+    font-weight: $font_weight_500;
   }
   p {
     color: $color_gray;
     margin-bottom: 30px;
   }
   img {
-    width: 35%;
+    width: 70%;
     margin: auto;
+  }
+  @media (min-width: $md_size) {
+    padding-left: 20px;
+    h1,
+    p {
+      display: none;
+    }
   }
 }
 
@@ -46,6 +63,9 @@ $md_size: 800px;
   }
   .choose-color {
     margin-top: 30px;
+    @media (min-width: $md_size) {
+      margin-top: 30px;
+    }
   }
   .product-colors {
     width: 100%;
@@ -63,8 +83,23 @@ $md_size: 800px;
         &:hover {
           opacity: 70%;
         }
+        @media (min-width: $md_size) {
+          margin: 10px 0px 0 10px;
+        }
+      }
+      @media (min-width: $md_size) {
+        justify-content: flex-start;
       }
     }
+  }
+
+  @media (max-width: $md_size) {
+    margin-top: 30px;
+  }
+  @media (min-width: $md_size) {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid bla ck;
   }
 }
 .description {
@@ -98,16 +133,15 @@ $md_size: 800px;
       & div:last-child {
         color: $color_dark;
       }
+      @media (max-width: $md_size) {
+        margin: 0 10px;
+      }
     }
   }
   @media (max-width: $md_size) {
     border: none;
     display: flex;
     justify-content: center;
-
-    li {
-      margin: 0 10px !important;
-    }
   }
 }
 
@@ -120,15 +154,24 @@ button.add-to-card {
   font-size: $font_md;
   margin-top: 30px;
   border: none;
+  border-radius: 10px;
+  display: none;
 
   &:hover {
     opacity: 70%;
   }
 
-  @media (max-width: $md_size) {
+  @media (min-width: $md_size) {
+    display: block;
+  }
+}
+
+.top-price {
+  @media (min-width: $md_size) {
     display: none;
   }
 }
+
 .add-to-card-sm {
   @extend .flex;
   width: 100%;
@@ -139,6 +182,7 @@ button.add-to-card {
   left: 0;
   padding: 10px;
   box-shadow: 1px 3px 7px $color_gray;
+  z-index: 10;
 
   & button {
     width: 50%;
@@ -150,6 +194,7 @@ button.add-to-card {
     background: $color_dark;
     color: $color_white;
     font-size: $font_md;
+    border-radius: 10px;
   }
 
   & p {
@@ -160,6 +205,19 @@ button.add-to-card {
     margin-right: 10px;
     font: $font_lg;
   }
+  @media (min-width: $md_size) {
+    display: none;
+  }
+}
+
+.product-title {
+  @media (max-width: $md_size) {
+    display: none;
+  }
+  @media (min-width: $md_size) {
+    color: $color_main;
+    font-size: $font_md;
+  }
 }
 
 @media (max-width: $md_size) {
@@ -168,58 +226,5 @@ button.add-to-card {
   .product_detail-meta {
     flex-direction: column;
     align-items: center;
-  }
-
-  .product-title {
-    display: none;
-  }
-
-  .product_detail-meta {
-    margin-top: 30px;
-  }
-}
-
-@media (min-width: $md_size) {
-  .top-price {
-    display: none;
-  }
-  .product_detail-view {
-    main {
-      background: $color_white;
-      width: 90%;
-      margin: auto;
-      display: flex;
-      flex-direction: row;
-    }
-  }
-  main > section {
-    width: 50% !important;
-  }
-  .product_detail-img {
-    padding-left: 20px;
-    h1,
-    p {
-      display: none;
-    }
-  }
-
-  .product_detail-meta {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid bla ck;
-  }
-  .product-title p {
-    color: $color_main;
-    font-size: $font_md;
-  }
-  .choose-color {
-    margin-top: 20px;
-  }
-  .product-colors ul {
-    justify-content: flex-start !important;
-
-    li {
-      margin: 10px 0px 0 10px !important;
-    }
   }
 }

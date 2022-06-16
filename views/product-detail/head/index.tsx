@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 
 import React from "react";
-import ImageSlider from "@shared/image-slider";
 import {
   PRODUCT_DESCRIPTION,
   CHOOSE_COLOR,
@@ -11,7 +10,8 @@ import {
   MADE,
 } from "@consts/static";
 import { ProductModel } from "@models/product.model";
-import Price from "@components/price";
+import Price from "@views/product-detail/components/price";
+import ProductImage from "../components/product-image";
 
 type Props = {
   product: ProductModel;
@@ -33,8 +33,11 @@ const ProductDetailHead: React.FC<Props> = ({ product }) => {
                 specificClass={product.hasSale !== true ? "center-at-sm" : ""}
               />
             </div>
-            <img src={product.main_image} alt={product.title} />
-            <ImageSlider images={product.images} />
+            <ProductImage
+              title={product.title}
+              main_image={product.main_image}
+              images={product.images}
+            />
           </section>
 
           <section className="product_detail-meta">
@@ -52,8 +55,7 @@ const ProductDetailHead: React.FC<Props> = ({ product }) => {
               <p>{PRODUCT_DESCRIPTION}</p>
               <div>{product.description}</div>
             </div>
-
-            <div className="product-features">
+            {/* <div className="product-features">
               <ul>
                 <li>
                   <div>{MADE}</div>
@@ -68,7 +70,7 @@ const ProductDetailHead: React.FC<Props> = ({ product }) => {
                   <div>{product.waranty}</div>
                 </li>
               </ul>
-            </div>
+            </div> */}
 
             <p className="choose-color">{CHOOSE_COLOR}</p>
 

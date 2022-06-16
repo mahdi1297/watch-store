@@ -1,8 +1,13 @@
-@import "./components/head/style";
-
 .product__detail-body {
   width: 100%;
   height: auto;
   position: relative;
-  top: -60px;
+
+  @media (min-width: $md_size) {
+    width: 90%;
+    margin: auto;
+  }
 }
+
+@import "./head/style";
+@import "./body/style";
