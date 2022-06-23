@@ -6,7 +6,6 @@
   h3 {
     color: $color_dark;
     font-size: $font_md;
-    border-bottom: 1px solid $color_dark;
   }
 
   div.product_detail-body-list {
@@ -17,7 +16,7 @@
 
     & > div.product-list-wrapper {
       width: auto;
-      min-width: 40%;
+      min-width: 30%;
       display: inline;
       margin-bottom: 30px;
 

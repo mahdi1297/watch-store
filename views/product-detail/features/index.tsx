@@ -1,3 +1,10 @@
+import {
+  LESS,
+  MORE,
+  profational_features,
+  SHOW_LESS,
+  SHOW_MORE,
+} from "@consts/static";
 import React, { useState } from "react";
 
 type Props = {
@@ -5,24 +12,23 @@ type Props = {
 };
 
 const ProductDetailBody: React.FC<Props> = ({ features }) => {
-  const [lessFeatures, setLessFeatures] = useState("LESS");
+  const [lessFeatures, setLessFeatures] = useState(LESS);
 
   const featureIndicatingViewHandler = () => {
-    if (lessFeatures === "LESS") {
-      setLessFeatures("MORE");
+    if (lessFeatures === LESS) {
+      setLessFeatures(MORE);
     }
-    if (lessFeatures === "MORE") {
-      setLessFeatures("LESS");
+    if (lessFeatures === MORE) {
+      setLessFeatures(LESS);
     }
   };
 
-  //
   return (
     <div className="product_detail-body">
-      <h3>مشخصات فنی</h3>
+      <h3>{profational_features}</h3>
       <div
         className={`product_detail-body-list ${
-          lessFeatures === "LESS" ? "limited" : "not_limited"
+          lessFeatures === LESS ? "limited" : "not_limited"
         }`}
       >
         {features &&
@@ -44,7 +50,7 @@ const ProductDetailBody: React.FC<Props> = ({ features }) => {
       </div>
       <div className="show-list">
         <a onClick={featureIndicatingViewHandler}>
-          {lessFeatures === "LESS" ? "نمایش بیشتر" : "نمایش کمتر"}
+          {lessFeatures === LESS ? SHOW_MORE : SHOW_LESS}
         </a>
       </div>
     </div>

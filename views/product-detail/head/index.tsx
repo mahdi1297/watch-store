@@ -1,17 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 
 import React from "react";
-import {
-  PRODUCT_DESCRIPTION,
-  CHOOSE_COLOR,
-  ADD_TO_CARD,
-  MATERIAL,
-  WARANTY,
-  MADE,
-} from "@consts/static";
 import { ProductModel } from "@models/product.model";
 import Price from "@views/product-detail/components/price";
 import ProductImage from "../components/product-image";
+import { PRODUCT_DESCRIPTION, CHOOSE_COLOR, ADD_TO_CARD } from "@consts/static";
 
 type Props = {
   product: ProductModel;
@@ -55,22 +48,6 @@ const ProductDetailHead: React.FC<Props> = ({ product }) => {
               <p>{PRODUCT_DESCRIPTION}</p>
               <div>{product.description}</div>
             </div>
-            {/* <div className="product-features">
-              <ul>
-                <li>
-                  <div>{MADE}</div>
-                  <div>{product.country}</div>
-                </li>
-                <li>
-                  <div>{MATERIAL}</div>
-                  <div>{product.material}</div>
-                </li>
-                <li>
-                  <div>{WARANTY}</div>
-                  <div>{product.waranty}</div>
-                </li>
-              </ul>
-            </div> */}
 
             <p className="choose-color">{CHOOSE_COLOR}</p>
 
