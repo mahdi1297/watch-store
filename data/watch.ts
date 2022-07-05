@@ -9,7 +9,7 @@ export const watchesData: ProductModel[] = [
     main_image: "/img/products/sample.png",
     description:
       "Iconic Link Automatic پیشرفته ترین ساعت ما تا به امروز است. دارای یک حرکت خود پیچشی که با حرکت مچ دست شما نیرو می گیرد",
-    colors: ["#874249", "#CCC4C3", "#39282D"],
+    colors: ["#c9ada1", "#CCC4C3", "#39282D"],
     country: "ژاپن",
     material: "استیل",
     waranty: "2 سال",

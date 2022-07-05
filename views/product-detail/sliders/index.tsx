@@ -1,179 +1,43 @@
-import SwiperSlider from "@shared/swiper";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import SwiperSlider from "@shared/swiper";
 import { SwiperSlide } from "swiper/react";
+import { RelatedProducts, relatedProducts } from "./slider.seed";
+import { RELATED_PRODUCTS } from "@consts/static";
 
 const ProductDetailSliders = () => {
   return (
     <div>
       <div className="related_prodcut-swiper">
-        <div>محصولات مشابه</div>
+        <h3>{RELATED_PRODUCTS}</h3>
         <SwiperSlider>
-          <SwiperSlide>
-            <Link href="/">
-              <a>
-                <div className="related_prodcut-swiper-items">
-                  <div className="header">
-                    <div className="thumbnail">
-                      <Image
-                        alt={"title"}
-                        src={"/img/products/sample.png"}
-                        layout="fill"
-                        objectFit="contain"
-                      />
+          {relatedProducts?.map((pr: RelatedProducts) => (
+            <SwiperSlide key={pr.id}>
+              <Link href="/">
+                <a>
+                  <div className="related_prodcut-swiper-items">
+                    <div className="header">
+                      <div className="thumbnail">
+                        <Image
+                          alt={"title"}
+                          src={pr.path}
+                          layout="fill"
+                          objectFit="contain"
+                        />
+                      </div>
+                    </div>
+                    <div className="content">
+                      <h3>{pr.title}</h3>
+                      <div className="price">{pr.price}</div>
                     </div>
                   </div>
-                  <div className="content">
-                    <h3>ICONIC LINK ARCTIC</h3>
-                    <div className="price">1200000</div>
-                  </div>
-                </div>
-              </a>
-            </Link>
-          </SwiperSlide>
-          <SwiperSlide>
-            <Link href="/">
-              <a>
-                <div className="related_prodcut-swiper-items">
-                  <div className="header">
-                    <div className="thumbnail">
-                      <Image
-                        alt={"title"}
-                        src={"/img/products/sample.png"}
-                        layout="fill"
-                        objectFit="contain"
-                      />
-                    </div>
-                  </div>
-                  <div className="content">
-                    <h3>ICONIC LINK ARCTIC</h3>
-                    <div className="price">1200000</div>
-                  </div>
-                </div>
-              </a>
-            </Link>
-          </SwiperSlide>
-          <SwiperSlide>
-            <Link href="/">
-              <a>
-                <div className="related_prodcut-swiper-items">
-                  <div className="header">
-                    <div className="thumbnail">
-                      <Image
-                        alt={"title"}
-                        src={"/img/products/sample.png"}
-                        layout="fill"
-                        objectFit="contain"
-                      />
-                    </div>
-                  </div>
-                  <div className="content">
-                    <h3>ICONIC LINK ARCTIC</h3>
-                    <div className="price">1200000</div>
-                  </div>
-                </div>
-              </a>
-            </Link>
-          </SwiperSlide>
-          <SwiperSlide>
-            <Link href="/">
-              <a>
-                <div className="related_prodcut-swiper-items">
-                  <div className="header">
-                    <div className="thumbnail">
-                      <Image
-                        alt={"title"}
-                        src={"/img/products/sample.png"}
-                        layout="fill"
-                        objectFit="contain"
-                      />
-                    </div>
-                  </div>
-                  <div className="content">
-                    <h3>ICONIC LINK ARCTIC</h3>
-                    <div className="price">1200000</div>
-                  </div>
-                </div>
-              </a>
-            </Link>
-          </SwiperSlide>
-          <SwiperSlide>
-            <Link href="/">
-              <a>
-                <div className="related_prodcut-swiper-items">
-                  <div className="header">
-                    <div className="thumbnail">
-                      <Image
-                        alt={"title"}
-                        src={"/img/products/sample.png"}
-                        layout="fill"
-                        objectFit="contain"
-                      />
-                    </div>
-                  </div>
-                  <div className="content">
-                    <h3>ICONIC LINK ARCTIC</h3>
-                    <div className="price">1200000</div>
-                  </div>
-                </div>
-              </a>
-            </Link>
-          </SwiperSlide>
-          <SwiperSlide>
-            <Link href="/">
-              <a>
-                <div className="related_prodcut-swiper-items">
-                  <div className="header">
-                    <div className="thumbnail">
-                      <Image
-                        alt={"title"}
-                        src={"/img/products/sample.png"}
-                        layout="fill"
-                        objectFit="contain"
-                      />
-                    </div>
-                  </div>
-                  <div className="content">
-                    <h3>ICONIC LINK ARCTIC</h3>
-                    <div className="price">1200000</div>
-                  </div>
-                </div>
-              </a>
-            </Link>
-          </SwiperSlide>
+                </a>
+              </Link>
+            </SwiperSlide>
+          ))}
         </SwiperSlider>
       </div>
-
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
     </div>
   );
 };

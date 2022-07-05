@@ -8,7 +8,7 @@
     font-size: $font_md;
   }
   & > p.not-sale-color {
-    color: $color_main;
+    color: $color_dark;
     font-size: $font_lg;
   }
   .price__body-sale-wrapper {
@@ -28,7 +28,7 @@
     @extend .flex;
     width: 30px;
     height: 20px;
-    background-color: $color_danger;
+    background-color: $color_main;
     border-radius: 5px;
     color: $color_white;
     align-items: center;
@@ -43,7 +43,7 @@
     }
   }
   .price-sale {
-    color: $color_danger;
+    color: $color_main;
     font-size: 20px;
     font-weight: 500;
   }

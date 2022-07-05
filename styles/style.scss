@@ -15,12 +15,17 @@
 @import "base/typography";
 @import "base/swiper";
 /* ---------------------
+	*** framework ***
+-----------------------*/
+//@import "@framework/carousel/style";
+/* ---------------------
 	*** components ***
 -----------------------*/
 @import "@components/header/style";
 /* ---------------------
 	*** views ***
 -----------------------*/
+@import "@views/home/style";
 @import "@views/product-detail/style";
 /* ---------------------
 	*** shared ***

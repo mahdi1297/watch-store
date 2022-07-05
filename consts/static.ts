@@ -9,3 +9,5 @@ export const MORE = "MORE";
 export const profational_features = "مشخصات فنی";
 export const SHOW_MORE = "نمایش بیشتر";
 export const SHOW_LESS = "نمایش کمتر";
+export const RELATED_PRODUCTS = "محصولات مشابه";
+export const TOOMAN = "تومان";

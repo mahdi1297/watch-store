@@ -114,42 +114,11 @@
   }
 }
 
-.product-features {
-  width: 100%;
-  margin-top: 30px;
-  border-top: 1px solid $color_gray;
-  border-bottom: 1px solid $color_gray;
-  padding: 10px 0;
-
-  ul {
-    @extend .flex;
-
-    li {
-      margin-left: 40px;
-
-      & div:first-child {
-        color: $color_gray;
-      }
-      & div:last-child {
-        color: $color_dark;
-      }
-      @media (max-width: $md_size) {
-        margin: 0 10px;
-      }
-    }
-  }
-  @media (max-width: $md_size) {
-    border: none;
-    display: flex;
-    justify-content: center;
-  }
-}
-
 button.add-to-card {
   width: 200px;
   height: 50px;
   cursor: pointer;
-  background: $color_dark;
+  background: $color_main;
   color: $color_white;
   font-size: $font_md;
   margin-top: 30px;
@@ -187,23 +156,17 @@ button.add-to-card {
   & button {
     width: 50%;
     height: 100%;
-    background: $color_dark;
     color: $color_white;
     border: none;
     cursor: pointer;
-    background: $color_dark;
+    background: $color_main;
     color: $color_white;
     font-size: $font_md;
     border-radius: 10px;
   }
 
   & p {
-    color: $color_main;
-    height: 100%;
-    @extend .flex;
-    align-items: center;
     margin-right: 10px;
-    font: $font_lg;
   }
   @media (min-width: $md_size) {
     display: none;

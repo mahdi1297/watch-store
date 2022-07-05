@@ -11,7 +11,7 @@ type Props = {
   features: any;
 };
 
-const ProductDetailBody: React.FC<Props> = ({ features }) => {
+const ProductDetailFeatures: React.FC<Props> = ({ features }) => {
   const [lessFeatures, setLessFeatures] = useState(LESS);
 
   const featureIndicatingViewHandler = () => {
@@ -57,4 +57,4 @@ const ProductDetailBody: React.FC<Props> = ({ features }) => {
   );
 };
 
-export default ProductDetailBody;
+export default ProductDetailFeatures;
