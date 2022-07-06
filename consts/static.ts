@@ -11,3 +11,5 @@ export const SHOW_MORE = "نمایش بیشتر";
 export const SHOW_LESS = "نمایش کمتر";
 export const RELATED_PRODUCTS = "محصولات مشابه";
 export const TOOMAN = "تومان";
+export const BEST_BRANDS = "برترین برند ها";
+export const LAST_BLOGS = "آخرین مطالب وبلاگ";

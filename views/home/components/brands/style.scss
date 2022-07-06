@@ -1,5 +1,5 @@
 .home_view-brands {
-  margin-top: 60px;
+  margin-top: 70px;
   width: 100%;
   height: auto;
 
@@ -39,8 +39,7 @@
 
       a {
         &:hover {
-          border: 1px solid $color_main;
-          background-color: $color_main;
+          opacity: 70%;
         }
       }
 

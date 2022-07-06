@@ -40,10 +40,6 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
 
   const product = getSingleProduct(params.slug);
 
-  // const result = await axios.post("/api/single-product", {
-  //   slug: params.slug,
-  // });
-
   if (!product) {
     return {
       notFound: true,
@@ -55,6 +51,7 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
     props: {
       product: product,
     },
+    revalidate: 60,
   };
 };
 

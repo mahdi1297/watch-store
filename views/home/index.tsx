@@ -1,13 +1,26 @@
 import React from "react";
+import HomeViewBlog from "./components/blogs";
 import HomeViewBrands from "./components/brands";
 import HomeViewHero from "./components/hero";
+import HomeViewProducts from "./components/products";
 
 const HomeView = () => {
   return (
-    <div className="home_view">
+    <>
       <HomeViewHero />
-      <HomeViewBrands />
-    </div>
+      <div className="home_view">
+        <HomeViewBrands />
+        <HomeViewProducts />
+        <HomeViewBlog />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+      </div>
+    </>
   );
 };
 

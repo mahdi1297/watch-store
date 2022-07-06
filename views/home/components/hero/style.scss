@@ -3,10 +3,10 @@
   height: 700px;
   background: url("/img/hero.jpg") center no-repeat;
   background-size: cover;
-  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
+
   span {
     color: $color_main;
     font-size: 45px;
@@ -16,5 +16,9 @@
     width: fit-content;
     max-width: 45%;
     font-weight: 600;
+  }
+
+  @media (min-width: 800px) {
+    margin: auto;
   }
 }
