@@ -5,6 +5,10 @@
 
 body {
   direction: rtl;
+  max-width: 1300px;
+  position: relative;
+  right: 50%;
+  transform: translateX(50%);
 }
 
 body,

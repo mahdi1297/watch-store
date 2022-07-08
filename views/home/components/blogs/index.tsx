@@ -1,7 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
-import { LAST_BLOGS } from "@consts/static";
-import Image from "next/image";
 import React from "react";
+import Link from "next/link";
+import { Blog, Blogs } from "./blogs.model";
+import { LAST_BLOGS } from "@consts/static";
 
 const HomeViewBlog = () => {
   return (
@@ -11,55 +12,32 @@ const HomeViewBlog = () => {
       </div>
 
       <div className="blog_list">
-        <div className="blog_list-item">
-          <div className="wrapper">
-            <div className="hero">
-              <img
-                src="/img/products/sample.png"
-                width="100%"
-                height="100%"
-                alt="x"
-              />
-            </div>
-            <div className="body">
-              <span className="publish-date">12 شهریور 1401</span>
-              <h2>این یک تایتل برای این مقاله است</h2>
-            </div>
-          </div>
-        </div>
-
-        <div className="blog_list-item">
-          <div className="wrapper">
-            <div className="hero">
-              <img
-                src="/img/products/sample.png"
-                width="100%"
-                height="100%"
-                alt="x"
-              />
-            </div>
-            <div className="body">
-              <span className="publish-date">12 شهریور 1401</span>
-              <h2>این یک تایتل برای این مقاله است</h2>
+        {Blogs?.map((blog: Blog) => (
+          <div key={blog.id} className="blog_list-item">
+            <div className="wrapper">
+              <div className="hero">
+                <Link href="/blog/blog-sample">
+                  <a>
+                    <img
+                      src={blog.thumbnail}
+                      width="100%"
+                      height="100%"
+                      alt="x"
+                    />
+                  </a>
+                </Link>
+              </div>
+              <div className="body">
+                <span className="publish-date">{blog.date}</span>
+                <Link href="/blog/sample-blog">
+                  <a>
+                    <h2>{blog.title}</h2>
+                  </a>
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="blog_list-item">
-          <div className="wrapper">
-            <div className="hero">
-              <img
-                src="/img/products/sample.png"
-                width="100%"
-                height="100%"
-                alt="x"
-              />
-            </div>
-            <div className="body">
-              <span className="publish-date">12 شهریور 1401</span>
-              <h2>این یک تایتل برای این مقاله است</h2>
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );

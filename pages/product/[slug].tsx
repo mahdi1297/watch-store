@@ -19,10 +19,11 @@ const ProductDetailView = dynamic(() => import("@views/product-detail"), {
 });
 
 const ProductDetail = ({ product }: any) => {
+  if (!product) {
+    return <p>Loading...</p>;
+  }
   return (
-    <div>
-      <ProductDetailView product={product} />
-    </div>
+    <div>{product && <ProductDetailView product={product && product} />}</div>
   );
 };
 

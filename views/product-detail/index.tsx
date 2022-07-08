@@ -9,14 +9,11 @@ const ProductDetailView = ({ product }: any) => {
     <>
       <div className="product__detail-body">
         <ProductDetailHead product={product} />
-        <ProductDetailFeatures features={product.features} />
+        {product && product.features && (
+          <ProductDetailFeatures features={product.features} />
+        )}
         <ProductDetailSliders />
         <ProductDetailComments />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
         <br />
         <br />
         <br />

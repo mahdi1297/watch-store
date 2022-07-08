@@ -21,19 +21,18 @@
   .blog_list {
     width: 100%;
     height: auto;
-    margin-top: 30px;
     @extend .flex;
     overflow-x: auto;
     overflow-y: clip;
-    margin-top: 30px;
+    margin-top: 60px;
     direction: rtl;
 
     .blog_list-item {
       width: 220px;
       height: auto;
-      padding: 5px;
       border-radius: 5px;
       display: -webkit-box;
+      margin-left: 20px;
 
       & > div {
         display: flex;
@@ -46,18 +45,33 @@
           height: 250px;
           img {
             border-radius: 5px;
+
+            &:hover {
+              opacity: 70%;
+            }
           }
         }
 
         .body {
           margin-top: 30px;
+          width: 100%;
+          display: block;
 
           .publish-date {
             color: $color_main;
             font-size: $font_sm;
           }
-          h2 {
-            color: $color_dark;
+          a {
+            width: 100%;
+            h2 {
+              color: $color_dark;
+              direction: rtl;
+              width: 100%;
+
+              &:hover {
+                color: $color_main;
+              }
+            }
           }
         }
       }
@@ -65,10 +79,15 @@
       @media (min-width: 700px) {
         width: 30%;
         margin-left: 2%;
+
         & > div {
           width: 100%;
         }
       }
+    }
+
+    @media (min-width: 700px) {
+      justify-content: space-between;
     }
   }
 }
