@@ -1,0 +1,172 @@
+.footer {
+  width: 100%;
+  background: $color_background;
+  margin-top: 70px;
+  padding-top: 30px;
+
+  .title {
+    display: block;
+    padding: 10px;
+
+    a {
+      color: $color_dark;
+      border-bottom: 3px solid $color_dark;
+      padding: 10px;
+
+      &:hover {
+        color: $color_main;
+        border-bottom: 3px solid $color_main;
+      }
+    }
+  }
+  .body {
+    width: 100%;
+    padding: 20px;
+
+    .socials {
+      @extend .flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #fbfbfb;
+      padding: 10px 5px;
+      border-radius: 5px;
+
+      ul {
+        margin-right: 10px;
+        display: inherit;
+        li {
+          margin-left: 10px;
+          display: flex;
+          align-items: center;
+          svg {
+            width: 20px;
+            color: $color_gray;
+            cursor: pointer;
+
+            &:hover {
+              color: $color_dark;
+            }
+          }
+        }
+      }
+    }
+    .contact {
+      margin-top: 30px;
+      ul {
+        li {
+          @extend .flex;
+          color: $color_dark;
+
+          svg {
+            width: 20px;
+            margin-left: 10px;
+          }
+        }
+      }
+    }
+    .content {
+      display: flex;
+      flex-direction: column-reverse;
+      margin-top: 30px;
+
+      .email_box {
+        width: 100%;
+        @extend .flex;
+        flex-direction: column;
+
+        & div {
+          font-size: $font_md;
+          font-family: "bold";
+        }
+
+        & form {
+          width: 100%;
+
+          input {
+            width: 100%;
+            height: 50px;
+            background: #fff;
+            border: none;
+            border-radius: 5px;
+            margin: 15px 0;
+            padding: 5px;
+          }
+
+          button {
+            background: $color_main;
+            border: none;
+            padding: 9px 18px;
+            color: $color_background;
+            font-size: $font_md;
+            border-radius: 5px;
+            cursor: pointer;
+            &:hover {
+              opacity: 70%;
+            }
+          }
+          @media (max-width: 1000px) {
+            display: flex;
+            align-items: center;
+
+            input {
+              border-radius: 0 5px 5px 0 !important;
+            }
+
+            button {
+              height: 50px;
+              border-radius: 5px 0 0 5px !important;
+            }
+          }
+        }
+      }
+
+      .menu {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+
+        ul {
+          width: auto;
+          display: inline;
+          padding-left: 10%;
+          li {
+            font-size: 15px;
+            padding: 5px 0;
+
+            &.menu_title {
+              font-family: "bold";
+              font-size: $font_md;
+            }
+            a {
+              color: $color_dark;
+
+              &:hover {
+                color: $color_main;
+              }
+            }
+          }
+        }
+      }
+
+      @media (min-width: 1000px) {
+        flex-direction: row;
+
+        .email_box {
+          width: 30%;
+        }
+        .menu {
+          width: 70%;
+        }
+      }
+    }
+    .developer {
+      width: 100%;
+      padding: 10px;
+      margin-top: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}

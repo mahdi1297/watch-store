@@ -2,6 +2,8 @@ import React from "react";
 import dynamic from "next/dynamic";
 import { GetStaticProps } from "next";
 import { getSingleProduct, watchesData } from "data/watch";
+import { useRouter } from "next/router";
+import { MainLayout } from "layout/main";
 
 const ProductDetailView = dynamic(() => import("@views/product-detail"), {
   suspense: true,
@@ -17,15 +19,6 @@ const ProductDetailView = dynamic(() => import("@views/product-detail"), {
     }
   },
 });
-
-const ProductDetail = ({ product }: any) => {
-  if (!product) {
-    return <p>Loading...</p>;
-  }
-  return (
-    <div>{product && <ProductDetailView product={product && product} />}</div>
-  );
-};
 
 export const getStaticPaths: any = async () => {
   const items = watchesData;
@@ -52,8 +45,24 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
     props: {
       product: product,
     },
-    revalidate: 60,
+    revalidate: 21600,
   };
+};
+
+const ProductDetail = ({ product }: any) => {
+  const router = useRouter();
+
+  if (!product) {
+    return <p>Loading...</p>;
+  }
+
+  return router.isFallback ? (
+    <h1>Loading...</h1>
+  ) : (
+    <MainLayout>
+      {product && <ProductDetailView product={product && product} />}
+    </MainLayout>
+  );
 };
 
 export default ProductDetail;

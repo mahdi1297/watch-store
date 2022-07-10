@@ -15,14 +15,6 @@
 @import "base/typography";
 @import "base/swiper";
 /* ---------------------
-	*** framework ***
------------------------*/
-//@import "@framework/carousel/style";
-/* ---------------------
-	*** components ***
------------------------*/
-@import "@components/header/style";
-/* ---------------------
 	*** views ***
 -----------------------*/
 @import "@views/home/style";
@@ -31,7 +23,8 @@
 	*** shared ***
 -----------------------*/
 @import "@shared/card/style";
-
-// body {
-//   background-color: #d9d9d9 !important;
-// }
+/* ---------------------
+	*** components ***
+-----------------------*/
+@import "@components/header/style";
+@import "@components/footer/style";

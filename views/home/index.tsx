@@ -12,13 +12,6 @@ const HomeView = () => {
         <HomeViewBrands />
         <HomeViewProducts />
         <HomeViewBlog />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
       </div>
     </>
   );

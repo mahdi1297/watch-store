@@ -1,3 +1,4 @@
+import { MainLayout } from "layout/main";
 import type { NextPage } from "next";
 import dynamic from "next/dynamic";
 
@@ -18,9 +19,9 @@ const HomeView = dynamic(() => import("@views/home"), {
 
 const Home: NextPage = () => {
   return (
-    <>
+    <MainLayout>
       <HomeView />
-    </>
+    </MainLayout>
   );
 };
 
