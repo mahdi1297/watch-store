@@ -13,15 +13,15 @@ export const MainLayout: React.FC<Props> = ({ children }) => {
     setRenderd(true);
   }, []);
 
-  if (typeof window === "undefined") {
-    return <></>;
-  } else {
-    return (
-      <div>
-        <Header />
-        {children}
-        {renderd && <Footer />}
-      </div>
-    );
-  }
+  // if (typeof window === "undefined") {
+  //   return <></>;
+  // } else {
+  return (
+    <div>
+      <Header />
+      {children}
+      {renderd && <Footer />}
+    </div>
+  );
+  // }
 };
