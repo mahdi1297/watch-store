@@ -35,5 +35,3 @@ yarn-error.log*
 *.tsbuildinfo
 
 /node_modules
-/public/fonts
-/public/img
