@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "@components/header";
 import Footer from "@components/footer";
 
@@ -7,11 +7,21 @@ type Props = {
 };
 
 export const MainLayout: React.FC<Props> = ({ children }) => {
-  return (
-    <div>
-      <Header />
-      {children}
-      <Footer />
-    </div>
-  );
+  const [renderd, setRenderd] = useState(false);
+
+  useEffect(() => {
+    setRenderd(true);
+  }, []);
+
+  if (typeof window === "undefined") {
+    return <></>;
+  } else {
+    return (
+      <div>
+        <Header />
+        {children}
+        {renderd && <Footer />}
+      </div>
+    );
+  }
 };
