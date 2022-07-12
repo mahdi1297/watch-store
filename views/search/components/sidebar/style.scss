@@ -1,0 +1,59 @@
+.sidebar_inner {
+  width: 100%;
+  height: 500px;
+  border-left: 1px solid #eee;
+  padding-left: 20px;
+
+  .sidebar_inner-items {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+
+    .title {
+      font-family: "bold";
+      font-size: $font_md;
+      @extend .flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      height: 55px;
+
+      svg {
+        cursor: pointer;
+        width: 20px;
+        color: $color_gray;
+      }
+    }
+
+    .body {
+      padding: 0 10px;
+      padding-bottom: 5px;
+
+      &.open {
+        height: auto;
+        overflow: visible;
+        opacity: 1;
+        transition: all 0.2s ease-in;
+      }
+      &.close {
+        height: 0;
+        overflow: hidden;
+        opacity: 0;
+      }
+    }
+
+    @media (min-width: 1000px) {
+      width: 90%;
+    }
+  }
+}
+
+.sidebar_range-slider-body {
+  padding-top: 30px;
+  padding-bottom: 40px;
+  position: relative;
+}
+// .sidebar_brands-body {
+//   max-height: 150px;
+//   overflow-y: auto;
+//   padding-right: 10px;
+// }

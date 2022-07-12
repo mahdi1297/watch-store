@@ -1,0 +1,41 @@
+$checkbox_width: 17px;
+$checkbox_height: 17px;
+
+.form_container {
+  width: 100%;
+
+  .checkbox {
+    @extend .flex;
+    align-items: center;
+    color: $color_dark;
+
+    label {
+      margin-right: 10px;
+      display: flex;
+      align-items: center;
+      padding-top: 5px;
+    }
+
+    input {
+      width: $checkbox_width;
+      opacity: 0;
+      height: $checkbox_height;
+      position: absolute;
+      z-index: 2;
+    }
+    span {
+      background-color: $color_white;
+      border: 1px solid $color_gray;
+      border-radius: 5px;
+      height: $checkbox_height;
+      transition-duration: 0.15s;
+      transition-property: all;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      width: $checkbox_width;
+      cursor: pointer;
+    }
+    input:checked ~ span {
+      background-color: $color_main;
+    }
+  }
+}

@@ -1,8 +1,8 @@
 import React from "react";
-import HomeViewBlog from "./components/blogs";
-import HomeViewBrands from "./components/brands";
-import HomeViewHero from "./components/hero";
-import HomeViewProducts from "./components/products";
+import HomeViewBlog from "./blogs";
+import HomeViewBrands from "./brands";
+import HomeViewHero from "./hero";
+import HomeViewProducts from "./products";
 
 const HomeView = () => {
   return (

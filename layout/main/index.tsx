@@ -13,9 +13,6 @@ export const MainLayout: React.FC<Props> = ({ children }) => {
     setRenderd(true);
   }, []);
 
-  // if (typeof window === "undefined") {
-  //   return <></>;
-  // } else {
   return (
     <div>
       <Header />
@@ -23,5 +20,4 @@ export const MainLayout: React.FC<Props> = ({ children }) => {
       {renderd && <Footer />}
     </div>
   );
-  // }
 };

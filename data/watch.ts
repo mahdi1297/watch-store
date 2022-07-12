@@ -71,6 +71,7 @@ export const watchesData: ProductModel[] = [
     slug: "ICONIC-LINK-ARCTIC-one",
     main_image: "/img/products/sample.png",
     price: 12000000,
+    brand: "dw",
     description:
       "Iconic Link Automatic پیشرفته ترین ساعت ما تا به امروز است. دارای یک حرکت خود پیچشی که با حرکت مچ دست شما نیرو می گیرد",
     colors: ["#874249", "#CCC4C3", "#39282D"],
@@ -134,6 +135,7 @@ export const watchesData: ProductModel[] = [
     slug: "ICONIC-LINK-ARCTIC-one",
     main_image: "/img/products/sample.png",
     price: 12000000,
+    brand: "dw",
     description:
       "Iconic Link Automatic پیشرفته ترین ساعت ما تا به امروز است. دارای یک حرکت خود پیچشی که با حرکت مچ دست شما نیرو می گیرد",
     colors: ["#874249", "#CCC4C3", "#39282D"],
@@ -260,6 +262,7 @@ export const watchesData: ProductModel[] = [
     slug: "ICONIC-LINK-ARCTIC-one",
     main_image: "/img/products/sample.png",
     price: 12000000,
+    brand: "Rolex",
     description:
       "Iconic Link Automatic پیشرفته ترین ساعت ما تا به امروز است. دارای یک حرکت خود پیچشی که با حرکت مچ دست شما نیرو می گیرد",
     colors: ["#874249", "#CCC4C3", "#39282D"],

@@ -2,7 +2,6 @@ import React from "react";
 import { Home, Menu, Search } from "react-feather";
 
 const Header = () => {
-  console.log("this is header");
   return (
     <div className="container">
       <header>

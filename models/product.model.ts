@@ -14,4 +14,5 @@ export interface ProductModel {
   hasSale: boolean;
   salePercent?: number;
   saledPrice?: number;
+  brand?: string;
 }

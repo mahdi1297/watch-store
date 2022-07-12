@@ -85,21 +85,21 @@ export const FooterMenu: Menu[] = [
     ],
   },
   {
-    id: 3,
+    id: 4,
     title: "عمومی",
     submenu: [
       {
-        id: 31,
+        id: 41,
         title: "صفحه ی اصلی",
         path: "/",
       },
       {
-        id: 32,
+        id: 42,
         title: "جست و جو",
         path: "/",
       },
       {
-        id: 33,
+        id: 43,
         title: "برترین برند ها",
         path: "/",
       },
