@@ -4,16 +4,32 @@
  * 
  * @returns modified url 
  */
+import { NextRouter } from "next/router";
 
 export class Router {
-    constructor(private _router: any) { }
+    constructor(private _router: NextRouter) { }
 
     getParams() {
-        const router = this._router;
-        console.log(router);
+        return this._router;
     }
 
     getQueries() {
         return this._router.query;
+    }
+
+    addQueries(key: string, value: any) {
+        this._router.push({
+            query: { ...this._router.query, [key]: value },
+        });
+    }
+
+    addSpecificQuery(query: any) {
+        let item;
+
+        for (item in query) {
+            this._router.push({
+                query: { ...this._router.query, [item]: query[item] },
+            });
+        }
     }
 }

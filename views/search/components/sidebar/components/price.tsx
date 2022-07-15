@@ -1,6 +1,5 @@
-import React, { useContext, useState } from "react";
+import React, { memo, useCallback, useEffect, useMemo, useState } from "react";
 import dynamic from "next/dynamic";
-import { SearchContext } from "@stores/search.store";
 import { useRouter } from "next/router";
 import { debouncer } from "@helpers/debouncer";
 import { ChevronDown } from "react-feather";
@@ -16,34 +15,46 @@ const RangeSlider = dynamic(() => import("@shared/range-slider"), {
 });
 
 const SidebarPrice = () => {
-
   const router = useRouter();
 
   const [priceOpen, setPriceOpen] = useState(true);
+  const [minPrice, setMinPrice] = useState<any>(null);
+  const [maxPrice, setMaxPrice] = useState<any>(null);
 
-  const searchCtx = useContext(SearchContext);
+  useEffect(() => {
+    const getPricesFromUrl = () => {
+      const minPriceQuery = router.query["min-price"];
+      const maxPriceQuery = router.query["max-price"];
+
+      setMinPrice(minPriceQuery ? minPriceQuery : 500000)
+      setMaxPrice(maxPriceQuery ? maxPriceQuery : 20000000)
+    }
+
+    getPricesFromUrl();
+  }, [router])
+
+
 
   const priceOppenToggleHandler = () => {
     setPriceOpen(!priceOpen);
   };
 
-  const addPriceToContext = ({ min, max }: RangeSliderArgs) => {
-    searchCtx.priceFilterOperator([min, max]);
-  }
-
   const addPriceToUrl = ({ min, max }: RangeSliderArgs) => {
-    router.push(`/search?min-price=${min}&max-price=${max}`);
+    router.push({
+      query: { ...router.query, "min-price": min, "max-price": max },
+    });
   }
 
   const buttonClickHandler = debouncer(({ min, max }: RangeSliderArgs) => {
     addPriceToUrl({ min, max });
   }, 2000);
 
-  const rangeSliderChangeHandler = ({ min, max }: RangeSliderArgs) => {
-    addPriceToContext({ min, max });
-    //@ts-ignore
-    buttonClickHandler({ min, max });
-  }
+  const rangeSliderChangeHandler = useMemo(() => {
+    return ({ min, max }: RangeSliderArgs) => {
+      //@ts-ignore
+      buttonClickHandler({ min, max });
+    }
+  }, [buttonClickHandler])
 
   return (
     <div className="sidebar_inner-items ">
@@ -54,17 +65,19 @@ const SidebarPrice = () => {
 
       <div className={`body  ${priceOpen ? "open" : "close"}`}>
         <div className="sidebar_range-slider-body">
-          <RangeSlider
-            min={500000}
-            max={20000000}
-            onChange={({ min, max }: RangeSliderArgs) =>
-              rangeSliderChangeHandler({ min, max })
-            }
-          />
+          {minPrice && maxPrice &&
+            <RangeSlider
+              min={minPrice}
+              max={maxPrice}
+              onChange={({ min, max }: RangeSliderArgs) =>
+                rangeSliderChangeHandler({ min, max })
+              }
+            />
+          }
         </div>
       </div>
     </div>
   );
 };
 
-export default SidebarPrice;
+export default memo(SidebarPrice);

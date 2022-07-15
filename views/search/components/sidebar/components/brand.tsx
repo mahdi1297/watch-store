@@ -1,38 +1,83 @@
-import React, { useContext, useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Checkbox from "@shared/form/checkbox";
-import { SearchContext } from "@stores/search.store";
 import { BrandSearch, brandsSearchModel } from "@models/search.model";
 import { ChevronDown } from "react-feather";
 import { BRANDS } from "@consts/static";
+import { useRouter } from "next/router";
+import { Router } from "@helpers/router";
 
 const SidebarBrand = () => {
+  const router = useRouter();
+  const _router = new Router(router);
 
   const [brandOpen, setBrandOpen] = useState(true);
-  const [brands, setBrands] = useState<string[]>([])
+  const [brands, setBrands] = useState<string[]>([]);
 
-  const searchCtx = useContext(SearchContext);
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    checkBrandInput();
+  }, [router]);
+
+
+  const checkBrandInput = () => {
+    const queries = router.query;
+    let brands = []
+    if (!queries.brand) {
+      return;
+    }
+    else if (typeof queries.brand === "string") {
+      brands = [queries.brand]
+    }
+    else {
+      brands = queries.brand;
+    }
+
+    console.log(inputRef)
+
+
+    if (brands.length !== 0) {
+      brands.forEach(element => {
+        if (typeof document !== 'undefined') {
+          const item: any = document?.getElementById(`${element}`)
+          if (item) {
+            item.checked = true;
+          }
+        }
+      })
+    }
+  }
 
   const brandOppenToggleHandler = () => {
     setBrandOpen(!brandOpen);
   };
 
   const addBrandsToCtx = (brandName: string) => {
+
+    // If remove a brand
     if (brands.includes(brandName)) {
       const filterBrands = brands.filter((s: any) => s !== brandName)
 
       setBrands(filterBrands);
-
-      searchCtx?.brandFilterOperator(filterBrands)
+      addBrandsToUrl(filterBrands);
       return;
     }
 
+    // If add a brand
     setBrands([...brands, brandName])
-    searchCtx.brandFilterOperator([...brands, brandName]);
+    addBrandsToUrl([...brands, brandName]);
+  }
+
+  const addBrandsToUrl = (brands: string[]) => {
+    _router.addQueries("brand", brands);
   }
 
   const checkboxChangeHandler = (e: any, brandName: string) => {
+
     addBrandsToCtx(brandName);
   };
+
 
   return (
     <div className="sidebar_inner-items">
@@ -57,4 +102,4 @@ const SidebarBrand = () => {
   );
 };
 
-export default SidebarBrand;
+export default memo(SidebarBrand);

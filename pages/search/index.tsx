@@ -1,7 +1,6 @@
 import React, { Suspense } from "react";
 import { MainLayout } from "layout/main";
 import dynamic from "next/dynamic";
-import SearchContextProvider from "@stores/search.store";
 
 const SearchView = dynamic(() => import("@views/search"), {
   ssr: true,
@@ -11,11 +10,9 @@ const SearchView = dynamic(() => import("@views/search"), {
 const Search = () => {
   return (
     <MainLayout>
-      <SearchContextProvider>
-        <Suspense fallback={<p>Loading...</p>}>
-          <SearchView />
-        </Suspense>
-      </SearchContextProvider>
+      <Suspense fallback={<p>Loading...</p>}>
+        <SearchView />
+      </Suspense>
     </MainLayout>
   );
 };

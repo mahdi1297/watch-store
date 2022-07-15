@@ -1,8 +1,7 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Card from "@shared/card";
 import SkeletonLoading from "@shared/loading/skeloton";
-import { SearchContext } from "@stores/search.store";
 import { ProductModel } from "@models/product.model";
 import { filterProducts, getPriceFilters } from "./service";
 
@@ -16,19 +15,17 @@ const SearchViewList = () => {
   const [productsList, setProductsList] = useState<ProductModel[]>([])
 
   const router = useRouter();
-  const searchCtx = useContext(SearchContext);
 
   useEffect(() => {
     const { minPrice, maxPrice }: any = getPriceFilters(router);
 
     filterProducts({
-      searchCtx,
       setProductsList,
       minPrice,
-      maxPrice
+      maxPrice,
+      router
     });
-
-  }, [searchCtx, router])
+  }, [router])
 
 
   return (
