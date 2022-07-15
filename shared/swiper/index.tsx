@@ -7,9 +7,25 @@ import "swiper/css/navigation";
 
 type Props = {
   children: React.ReactNode;
+  breakPoints?: any
 };
 
-const SwiperSlider: React.FC<Props> = ({ children }) => {
+const initialBreakPoint = {
+  0: {
+    slidesPerView: 1,
+    spaceBetween: 20,
+  },
+  500: {
+    slidesPerView: 2,
+    spaceBetween: 30,
+  },
+  640: {
+    slidesPerView: 4,
+    spaceBetween: 40,
+  },
+}
+
+const SwiperSlider: React.FC<Props> = ({ children, breakPoints = initialBreakPoint }) => {
   return (
     <div>
       <Swiper
@@ -17,20 +33,7 @@ const SwiperSlider: React.FC<Props> = ({ children }) => {
         navigation
         pagination={{ clickable: false }}
         scrollbar={{ draggable: true }}
-        breakpoints={{
-          0: {
-            slidesPerView: 1,
-            spaceBetween: 20,
-          },
-          500: {
-            slidesPerView: 2,
-            spaceBetween: 30,
-          },
-          640: {
-            slidesPerView: 4,
-            spaceBetween: 40,
-          },
-        }}
+        breakpoints={breakPoints}
       >
         {children}
       </Swiper>

@@ -85,7 +85,13 @@
       margin-right: 10px;
       margin-left: 10px;
     }
+    .rating-list {
+      width: 15px;
+      height: 30px;
+    }
     .rating-amount {
+      width: 30px;
+      height: 30px;
       color: $color_gray;
     }
 
@@ -128,7 +134,6 @@
 .comment-list-wrapper {
   width: 100%;
   height: auto;
-  padding: 10px;
 
   ul {
     width: 100%;

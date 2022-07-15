@@ -8,15 +8,14 @@ const ProductDetailView = ({ product }: any) => {
   return (
     <>
       <div className="product__detail-body">
-        <ProductDetailHead product={product} />
-        {product && product.features && (
-          <ProductDetailFeatures features={product.features} />
-        )}
-        <ProductDetailSliders />
-        <ProductDetailComments />
-        <br />
-        <br />
-        <br />
+        <div className="container">
+          <ProductDetailHead product={product} />
+          {product && product.features && (
+            <ProductDetailFeatures features={product.features} />
+          )}
+          <ProductDetailSliders />
+          <ProductDetailComments />
+        </div>
       </div>
     </>
   );

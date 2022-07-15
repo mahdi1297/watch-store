@@ -6,12 +6,35 @@ import { SwiperSlide } from "swiper/react";
 import { RelatedProducts, relatedProducts } from "./slider.seed";
 import { RELATED_PRODUCTS } from "@consts/static";
 
+const sliderBreakPoints = {
+  0: {
+    slidesPerView: 1,
+    spaceBetween: 50,
+  },
+  390: {
+    slidesPerView: 2,
+    spaceBetween: 30,
+  },
+  600: {
+    slidesPerView: 3,
+    spaceBetween: 30,
+  },
+  1000: {
+    slidesPerView: 4,
+    spaceBetween: 40,
+  },
+  1400: {
+    slidesPerView: 5,
+    spaceBetween: 50,
+  }
+}
+
 const ProductDetailSliders = () => {
   return (
     <div>
       <div className="related_prodcut-swiper">
         <h3>{RELATED_PRODUCTS}</h3>
-        <SwiperSlider>
+        <SwiperSlider breakPoints={sliderBreakPoints}>
           {relatedProducts?.map((pr: RelatedProducts) => (
             <SwiperSlide key={pr.id}>
               <Link href="/">

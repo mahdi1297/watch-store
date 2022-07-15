@@ -21,35 +21,35 @@ const Rating = () => {
       <div>
         <ul className="rate-lines">
           <li>
-            <div>5</div>
+            <div className="rating-list">5</div>
             <div className="outer-rating-line">
               <div className="inner-rating-line-5"></div>
             </div>
             <div className="rating-amount">57</div>
           </li>
           <li>
-            <div>4</div>
+            <div className="rating-list">4</div>
             <div className="outer-rating-line">
               <div className="inner-rating-line-4"></div>
             </div>
             <div className="rating-amount">23</div>
           </li>
           <li>
-            <div>3</div>
+            <div className="rating-list">3</div>
             <div className="outer-rating-line">
               <div className="inner-rating-line-3"></div>
             </div>
             <div className="rating-amount">35</div>
           </li>
           <li>
-            <div>2</div>
+            <div className="rating-list">2</div>
             <div className="outer-rating-line">
               <div className="inner-rating-line-2"></div>
             </div>
             <div className="rating-amount">10</div>
           </li>
           <li>
-            <div>1</div>
+            <div className="rating-list">1</div>
             <div className="outer-rating-line">
               <div className="inner-rating-line-1"></div>
             </div>
