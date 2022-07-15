@@ -12,25 +12,31 @@
     width: 100%;
     height: auto;
     @extend .flex;
+    flex-wrap: wrap;
 
     & > section {
       height: auto;
     }
     & section.rating {
-      width: 30%;
+      width: 300px;
     }
     & section.commments {
-      width: 70%;
+      width: 100%;
+    }
+
+    @media (min-width: 800px) {
+      & section.rating {
+        width: 30%;
+      }
+      & section.commments {
+        width: 70%;
+      }
     }
   }
 }
 
 .rating_container {
-  width: 80%;
-  height: auto;
-  position: sticky;
-  right: 0;
-  top: 100px;
+  width: 100%;
 
   .title_list {
     li {
@@ -109,6 +115,14 @@
     .inner-rating-line-5 {
       width: 100%;
     }
+  }
+
+  @media (min-width: 800px) {
+    width: 80%;
+    height: auto;
+    position: sticky;
+    right: 0;
+    top: 100px;
   }
 }
 .comment-list-wrapper {
