@@ -4,6 +4,7 @@ import { GetStaticProps } from "next";
 import { getSingleProduct, watchesData } from "data/watch";
 import { useRouter } from "next/router";
 import { MainLayout } from "layout/main";
+import SkeletonLoading from "@shared/loading/skeloton";
 
 const ProductDetailView = dynamic(() => import("@views/product-detail"), {
   suspense: true,
@@ -53,11 +54,11 @@ const ProductDetail = ({ product }: any) => {
   const router = useRouter();
 
   if (!product) {
-    return <p>Loading...</p>;
+    return <SkeletonLoading />;
   }
 
   return router.isFallback ? (
-    <h1>Loading...</h1>
+    <SkeletonLoading />
   ) : (
     <MainLayout>
       {product && <ProductDetailView product={product && product} />}

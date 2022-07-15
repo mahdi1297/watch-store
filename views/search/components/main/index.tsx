@@ -1,48 +1,51 @@
 import React, { useContext, useEffect, useState } from "react";
-import { SearchContext } from "@stores/search.store";
-import { watchesData } from "data/watch";
-import { ProductModel } from "@models/product.model";
+import { useRouter } from "next/router";
 import Card from "@shared/card";
+import SkeletonLoading from "@shared/loading/skeloton";
+import { SearchContext } from "@stores/search.store";
+import { ProductModel } from "@models/product.model";
+import { filterProducts, getPriceFilters } from "./service";
 
-
+/**
+ * This component, recives a list of searches based on Context
+ * And gets the watches list
+ * 
+ * @returns A list of watches based on searchs
+ */
 const SearchViewList = () => {
   const [productsList, setProductsList] = useState<ProductModel[]>([])
+
+  const router = useRouter();
   const searchCtx = useContext(SearchContext);
 
   useEffect(() => {
-    const filters: any = searchCtx?.filters;
+    const { minPrice, maxPrice }: any = getPriceFilters(router);
 
-    if (filters && filters.brand && filters.brand.length !== 0) {
+    filterProducts({
+      searchCtx,
+      setProductsList,
+      minPrice,
+      maxPrice
+    });
 
-      let watchesList: ProductModel[] | any = [];
+  }, [searchCtx, router])
 
-      if (Array.isArray(filters.brand) && filters.brand.length !== 0) {
-        filters.brand.forEach((element: any) => {
-          let watches = watchesData.filter((s: any) => s.brand === element)
-          watchesList = watchesList.concat(watches)
-        });
-      }
-
-      setProductsList([...watchesList])
-    }
-
-
-  }, [searchCtx])
 
   return (
     <div className="list list_inner">
-      <div className="header"></div>
+      <div className="search_view-header"></div>
       <div>
-        {productsList?.length !== 0 && productsList?.map((product: ProductModel) => (
-          <div key={product.id}>
+        <div className="search_view-wrapper">
+          {productsList?.length !== 0 ? productsList?.map((product: ProductModel) => (
             <Card
+              key={product.id}
               path={product.slug}
               title={product.title}
               thumbnail={product.main_image}
               price={product.price}
             />
-          </div>
-        ))}
+          )) : <SkeletonLoading />}
+        </div>
       </div>
     </div>
   );

@@ -1,8 +1,44 @@
 .list_inner {
-  .header {
+  padding: 0 10px;
+
+  .search_view-header {
     width: 100%;
     height: 50px;
-    background: $color_background;
-    border-radius: 5px;
+    border-bottom: 1px solid $color_background;
+    margin-bottom: 10px;
+  }
+  .search_view-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .card_wrapper {
+      width: 70%;
+
+      @media (min-width: 400px) {
+        width: 49%;
+      }
+      @media (min-width: 600px) {
+        width: 45%;
+      }
+      @media (min-width: 700px) {
+        width: 30%;
+        margin-left: 3%;
+      }
+      @media (min-width: 1200px) {
+        width: 22%;
+      }
+    }
+
+    @media (min-width: 400px) {
+      justify-content: space-between;
+    }
+    @media (min-width: 700px) {
+      justify-content: flex-start;
+    }
+  }
+
+  @media (min-width: 1000px) {
+    padding-right: 30px;
   }
 }

@@ -13,3 +13,5 @@ export const RELATED_PRODUCTS = "محصولات مشابه";
 export const TOOMAN = "تومان";
 export const BEST_BRANDS = "برترین برند ها";
 export const LAST_BLOGS = "آخرین مطالب وبلاگ";
+export const PRICE_RANGE = "محدوده قیمت";
+export const BRANDS = "برند ها";

@@ -326,6 +326,7 @@ export const watchesData: ProductModel[] = [
     slug: "ICONIC-LINK-ARCTIC-one",
     main_image: "/img/products/sample.png",
     price: 12000000,
+    brand: "swatch",
     description:
       "Iconic Link Automatic پیشرفته ترین ساعت ما تا به امروز است. دارای یک حرکت خود پیچشی که با حرکت مچ دست شما نیرو می گیرد",
     colors: ["#874249", "#CCC4C3", "#39282D"],
@@ -404,7 +405,7 @@ export const watchesData: ProductModel[] = [
     ],
     features: [
       {
-        id: 1,
+        id: 132423,
         title: "اطلاعات کلی",
         subFeatures: [
           { _id: 1, key: "جنسیت", value: "مردانه" },

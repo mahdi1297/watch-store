@@ -1,10 +1,12 @@
-import { BrandSearch, brandsSearchModel } from "@models/search.model";
+import React, { useContext, useState } from "react";
 import Checkbox from "@shared/form/checkbox";
 import { SearchContext } from "@stores/search.store";
-import React, { useContext, useState } from "react";
+import { BrandSearch, brandsSearchModel } from "@models/search.model";
 import { ChevronDown } from "react-feather";
+import { BRANDS } from "@consts/static";
 
 const SidebarBrand = () => {
+
   const [brandOpen, setBrandOpen] = useState(true);
   const [brands, setBrands] = useState<string[]>([])
 
@@ -14,27 +16,28 @@ const SidebarBrand = () => {
     setBrandOpen(!brandOpen);
   };
 
-
-  const checkboxOnchangeHandler = (e: any, brandName: string) => {
-
+  const addBrandsToCtx = (brandName: string) => {
     if (brands.includes(brandName)) {
       const filterBrands = brands.filter((s: any) => s !== brandName)
+
       setBrands(filterBrands);
 
       searchCtx?.brandFilterOperator(filterBrands)
-
       return;
     }
 
     setBrands([...brands, brandName])
-    searchCtx.brandFilterOperator([...brands, brandName])
+    searchCtx.brandFilterOperator([...brands, brandName]);
+  }
+
+  const checkboxChangeHandler = (e: any, brandName: string) => {
+    addBrandsToCtx(brandName);
   };
 
-  //
   return (
     <div className="sidebar_inner-items">
       <div className="title" onClick={brandOppenToggleHandler}>
-        برند ها
+        {BRANDS}
         <ChevronDown />
       </div>
       <div className={`body ${brandOpen ? "open" : "close"}`}>
@@ -44,7 +47,7 @@ const SidebarBrand = () => {
               <Checkbox
                 name={brand.name}
                 label={brand.label}
-                onchange={checkboxOnchangeHandler}
+                onchange={checkboxChangeHandler}
               />
             </div>
           ))}
