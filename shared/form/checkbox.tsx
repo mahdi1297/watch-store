@@ -6,9 +6,10 @@ type Props = {
   label: string;
   onchange?: ChangeEventHandler | any;
   inputRef?: any;
+  onclick?: any
 };
 
-const Checkbox = ({ register, name, label, onchange, inputRef }: Props) => {
+const Checkbox = ({ register, name, label, onchange, inputRef, onclick }: Props) => {
   return (
     <div className="form_container">
       <div className="checkbox">
@@ -19,7 +20,8 @@ const Checkbox = ({ register, name, label, onchange, inputRef }: Props) => {
           </>
         ) : (
           <>
-            <input type="checkbox" id={name} ref={inputRef && inputRef} onChange={(e) => onchange(e, name)} />
+            <input type="checkbox" id={name} ref={inputRef && inputRef}
+              onChange={(e) => onchange(e, name)} />
             <span></span>
           </>
         )}

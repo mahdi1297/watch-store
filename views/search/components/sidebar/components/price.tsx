@@ -18,21 +18,6 @@ const SidebarPrice = () => {
   const router = useRouter();
 
   const [priceOpen, setPriceOpen] = useState(true);
-  const [minPrice, setMinPrice] = useState<any>(null);
-  const [maxPrice, setMaxPrice] = useState<any>(null);
-
-  useEffect(() => {
-    const getPricesFromUrl = () => {
-      const minPriceQuery = router.query["min-price"];
-      const maxPriceQuery = router.query["max-price"];
-
-      setMinPrice(minPriceQuery ? minPriceQuery : 500000)
-      setMaxPrice(maxPriceQuery ? maxPriceQuery : 20000000)
-    }
-
-    getPricesFromUrl();
-  }, [router])
-
 
 
   const priceOppenToggleHandler = () => {
@@ -40,6 +25,9 @@ const SidebarPrice = () => {
   };
 
   const addPriceToUrl = ({ min, max }: RangeSliderArgs) => {
+    if (!router.query["min-price"] || !router.query["max-price"]) {
+      return;
+    }
     router.push({
       query: { ...router.query, "min-price": min, "max-price": max },
     });
@@ -49,12 +37,10 @@ const SidebarPrice = () => {
     addPriceToUrl({ min, max });
   }, 2000);
 
-  const rangeSliderChangeHandler = useMemo(() => {
-    return ({ min, max }: RangeSliderArgs) => {
-      //@ts-ignore
-      buttonClickHandler({ min, max });
-    }
-  }, [buttonClickHandler])
+  const rangeSliderChangeHandler = ({ min, max }: RangeSliderArgs) => {
+    //@ts-ignore
+    buttonClickHandler({ min, max });
+  }
 
   return (
     <div className="sidebar_inner-items ">
@@ -65,15 +51,13 @@ const SidebarPrice = () => {
 
       <div className={`body  ${priceOpen ? "open" : "close"}`}>
         <div className="sidebar_range-slider-body">
-          {minPrice && maxPrice &&
-            <RangeSlider
-              min={minPrice}
-              max={maxPrice}
-              onChange={({ min, max }: RangeSliderArgs) =>
-                rangeSliderChangeHandler({ min, max })
-              }
-            />
-          }
+          <RangeSlider
+            min={0}
+            max={20000000}
+            onChange={({ min, max }: RangeSliderArgs) =>
+              rangeSliderChangeHandler({ min, max })
+            }
+          />
         </div>
       </div>
     </div>
