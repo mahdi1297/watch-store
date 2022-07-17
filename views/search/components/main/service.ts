@@ -24,7 +24,7 @@ export const getPriceFilters = (router: any) => {
     minPrice: urlQueris["min-price"] ? parseInt(urlQueris["min-price"]) : 0,
     maxPrice: urlQueris["max-price"]
       ? parseInt(urlQueris["max-price"])
-      : 10000000,
+      : 20000000,
   };
 
   return queris;
